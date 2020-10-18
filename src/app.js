@@ -47,22 +47,64 @@ function renderPatty() {
 
 function renderCheese() {
   //Trial 1 - Change the visibility of cheese based on state by manipulating the DOM
+  let cheese = document.querySelector("#cheese")
+  if (state.Cheese)
+  cheese.style.display = "inherit"
+  else
+  cheese.style.display = "none"
 }
 
 function renderTomatoes() {
   //Trial 1 - Change the visibility of Tomatoes based on state by manipulating the DOM
+  let tomato = document.querySelector("#tomato")
+  if (state.Tomatoes)
+  tomato.style.display = "inherit"
+  else
+  tomato.style.display = "none"
 }
 
 function renderOnions() {
   //Trial 1 - Change the visibility of Onions based on state by manipulating the DOM
+  let onion = document.querySelector("#onion")
+  if (state.Onions)
+  onion.style.display = "inherit"
+  else
+  onion.style.display = "none"
 }
 
 function renderLettuce() {
   //Trial 1 - Change the visibility of Lettuce based on state by manipulating the DOM
+  let lettuce = document.querySelector("#lettuce")
+  if (state.Lettuce)
+  lettuce.style.display = "inherit"
+  else
+  lettuce.style.display = "none"
 }
 
+document.querySelector(".btn-cheese").onclick = function () {
+  state.Cheese = !state.Cheese;
+  renderAll();
+
+};
 document.querySelector(".btn-patty").onclick = function () {
   state.Patty = !state.Patty;
+  renderAll();
+};
+
+
+document.querySelector(".btn-tomatoes").onclick = function () {
+  state.Tomatoes = !state.Tomatoes;
+  renderAll();
+};
+
+
+document.querySelector(".btn-onions").onclick = function () {
+  state.Onions = !state.Onions;
+  renderAll();
+};
+
+document.querySelector(".btn-lettuce").onclick = function () {
+  state.Lettuce = !state.Lettuce;
   renderAll();
 };
 
@@ -87,3 +129,29 @@ document.querySelector(".btn-patty").onclick = function () {
 //Judgement 1
 //In the p element having price-details as the class, display the calculated
 //price based on ingredients
+function renderPrice () {
+  const submit = document.querySelector("Rectangle5")
+var sum=0
+if(state.patty)
+sum = sum +parseInt(ingredients.Patty)
+}
+
+function renderPrice () {
+  const submit = document.querySelector("Rectangle5")
+var sum=0
+if(state.cheese)
+sum = sum +parseInt(ingredients.Cheese)
+
+if(state.tomato)
+sum = sum +parseInt(ingredients.Tomatoes)
+
+if(state.onion)
+sum = sum +parseInt(ingredients.Onions)
+
+if(state.lettuce)
+sum = sum +parseInt(ingredients.Lettuce)
+
+submit.onclick = (evt) => {
+  document.querySelector(".price-details").innerHTML = sum
+}
+}
